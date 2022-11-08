@@ -15,9 +15,7 @@ def vowel_counts(string)
     counter = Hash.new(0)
 
     string.each_char do |char|
-        if vowels.include?(char.downcase)
-            counter[char.downcase] += 1
-        end
+        counter[char.downcase] += 1 if vowels.include?(char.downcase)
     end
     return counter
 end
