@@ -23,9 +23,9 @@ end
 def alternating_mapper(arr, proc1, proc2)
     arr.map.with_index do |ele, i|
         if i.even?
-            arr[i] = proc1.call(arr[i])
+            proc1.call(ele)
         else
-            arr[i] = proc2.call(arr[i])
+            proc2.call(ele)
         end
     end
 end
