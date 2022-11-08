@@ -11,7 +11,7 @@ def prime?(num)
 end
 
 def largest_prime_factor(num)
-     num.downto(2) do |i|
+     num.downto(0) do |i|
          if num % i == 0 && prime?(i)
             return i
          end

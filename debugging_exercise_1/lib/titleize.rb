@@ -12,7 +12,7 @@ def titleize(title)
 
   titleized_words = words.map.with_index do |word, i|
     if i == 0 || !little_words.include?(word)
-      word[0].upcase + word[1..-1].downcase
+      word.capitalize
     else
       word.downcase
     end

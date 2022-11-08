@@ -9,5 +9,5 @@ end
 
 def any_passing_students?(arr)
 
-    arr.any? {|student| student.grade > 75}
+    arr.any? {|student| (student[:grades].sum) / student[:grades].length >= 75 }  
 end
