@@ -34,14 +34,16 @@ def unique_chars?(string)
 end
 
 def dupe_indices (arr)
-    index_hash = Hash.new {|h, k| h[k] = []}
+    index_hash = Hash.new {|hash, key| hash[key] = []}
 
     arr.each_with_index do |ele, i|
         index_hash[ele] << i
     end
-    index_hash.select {|ele, arr| arr.length > 1}
+
+    index_hash.select {|ele, value| value.length > 1}
 end
 
+puts dupe_indices(["a", "b", "c", "c", "b"])
 def ana_array (arr1, arr2)
     ana_hash = Hash.new(0)
 
@@ -54,7 +56,7 @@ def ana_array (arr1, arr2)
     end
 
     ana_hash.each do |key, value|
-        if value > 0 || value < 0
+        if value != 0
             return false
         end
     end
