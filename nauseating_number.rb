@@ -244,53 +244,68 @@ matrix_e = [[0 , 0], [12, 4], [6,  3]]
 #     return false
 # end
 
-def squarocol?(sqmatrix)
-    sqmatrix.each do |row|
+# def squarocol?(sqmatrix)
+#     sqmatrix.each do |row|
+#         return true if row.all?{|ele| ele == row[0]}
+#     end
+
+#     count = 1
+#     sqmatrix[0].each_with_index do |ele, i|
+#         sqmatrix[1..-1].each do |row|
+#             count += 1 if row[i] == ele
+#         end
+#         return true if count == sqmatrix.length
+#         count = 1
+#     end
+#     return false
+# end
+
+def squarocol? (matrix)
+    
+    matrix.each do |row|
         return true if row.all?{|ele| ele == row[0]}
     end
 
-    count = 1
-    sqmatrix[0].each_with_index do |ele, i|
-        sqmatrix[1..-1].each do |row|
-            count += 1 if row[i] == ele
-        end
-        return true if count == sqmatrix.length
-        count = 1
+    column = matrix.transpose()
+
+    column.each do |row|
+        return true if row.all? {|ele| ele == row[0]}
     end
+
     return false
 end
 
-# p squarocol?([
-#     [:a, :x , :d],
-#     [:b, :x , :e],
-#     [:c, :x , :f],
-# ]) # true
+p squarocol?([
+    [:a, :x , :d],
+    [:b, :x , :e],
+    [:c, :x , :f],
+]) # true
 
-# p squarocol?([
-#     [:x, :y, :x],
-#     [:x, :z, :x],
-#     [:o, :o, :o],
-# ]) # true
+p squarocol?([
+    [:x, :y, :x],
+    [:x, :z, :x],
+    [:o, :o, :o],
+]) # true
 
-# p squarocol?([
-#     [:o, :x , :o],
-#     [:x, :o , :x],
-#     [:o, :x , :o],
-# ]) # false
+p squarocol?([
+    [:o, :x , :o],
+    [:x, :o , :x],
+    [:o, :x , :o],
+]) # false
 
-# p squarocol?([
-#     [1, 2, 2, 7],
-#     [1, 6, 6, 7],
-#     [0, 5, 2, 7],
-#     [4, 2, 9, 7],
-# ]) # true
+p squarocol?([
+    [1, 2, 2, 7],
+    [1, 6, 6, 7],
+    [0, 5, 2, 7],
+    [4, 2, 9, 7],
+]) # true
 
-# p squarocol?([
-#     [1, 2, 2, 7],
-#     [1, 6, 6, 0],
-#     [0, 5, 2, 7],
-#     [4, 2, 9, 7],
-# ]) # false
+p squarocol?([
+    [1, 2, 2, 7],
+    [1, 6, 6, 0],
+    [0, 5, 2, 7],
+    [4, 2, 9, 7],
+]) # false
 
 # def squaragonal? (matrix)
 #     matrix.each_with_index do |row, i|
@@ -574,13 +589,13 @@ def next_smallest_prime(num, count)
     end
 end
 
-p pretentious_primes([4, 15, 7], 1)           # [5, 17, 11]
-p pretentious_primes([4, 15, 7], 2)           # [7, 19, 13]
-p pretentious_primes([12, 11, 14, 15, 7], 1)  # [13, 13, 17, 17, 11]
-p pretentious_primes([12, 11, 14, 15, 7], 3)  # [19, 19, 23, 23, 17]
-p pretentious_primes([4, 15, 7], -1)          # [3, 13, 5]
-p pretentious_primes([4, 15, 7], -2)          # [2, 11, 3]
-p pretentious_primes([2, 11, 21], -1)         # [nil, 7, 19]
-p pretentious_primes([32, 5, 11], -3)         # [23, nil, 3]
-p pretentious_primes([32, 5, 11], -4)         # [19, nil, 2]
-p pretentious_primes([32, 5, 11], -5)         # [17, nil, nil]
+# p pretentious_primes([4, 15, 7], 1)           # [5, 17, 11]
+# p pretentious_primes([4, 15, 7], 2)           # [7, 19, 13]
+# p pretentious_primes([12, 11, 14, 15, 7], 1)  # [13, 13, 17, 17, 11]
+# p pretentious_primes([12, 11, 14, 15, 7], 3)  # [19, 19, 23, 23, 17]
+# p pretentious_primes([4, 15, 7], -1)          # [3, 13, 5]
+# p pretentious_primes([4, 15, 7], -2)          # [2, 11, 3]
+# p pretentious_primes([2, 11, 21], -1)         # [nil, 7, 19]
+# p pretentious_primes([32, 5, 11], -3)         # [23, nil, 3]
+# p pretentious_primes([32, 5, 11], -4)         # [19, nil, 2]
+# p pretentious_primes([32, 5, 11], -5)         # [17, nil, nil]
