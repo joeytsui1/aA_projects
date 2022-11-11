@@ -26,4 +26,3 @@ end
 def aba_array (arr)
     new_words = arr.map {|word| aba_translate(word)}
 end
-
