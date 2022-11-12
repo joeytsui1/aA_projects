@@ -13,20 +13,25 @@ def hipsterfy (word)
 end
 
 def vowel_counts (str)
-    new_hash = Hash.new(0)
+    vowels = "aieou"
+    hash = Hash.new(0)
 
     str.each_char do |char|
-        new_hash[char.downcase] += 1
+        if vowels.include?(char.downcase)
+            hash[char.downcase] += 1
+        end
     end
-    return new_hash
+    return hash
 end
 
 def caesar_cipher (str, n)
     alpha = ("a".."z").to_a
     new_str = ""
+
+
     str.each_char do |char|
         if alpha.include?(char)
-            new_str += alpha[(alpha.index(char) + n) % 26]
+            new_str += alpha[(alpha.index(char)+n) % 26]
         else
             new_str += char
         end
