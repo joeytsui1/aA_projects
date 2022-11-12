@@ -1,32 +1,21 @@
-def average(num1, num2)
-    (num1 + num2)/ 2.0
+def average (num1, num2)
+    return (num1 + num2) / 2.0
 end
 
-def average_array(array)
-    sum = array.sum
-    average = sum / array.length.to_f
+def average_array (arr)
+    return arr.sum / arr.length.to_f
 end
 
-def repeat(str, num)
-    str*num
+def repeat (str, n)
+    return str*n
 end
 
-def yell(str)
-    str = str.upcase + "!"
+def yell (str)
+    return str.upcase + "!"
 end
 
-def alternating_case(str)
-    words = str.split(" ")
-  
-    # words.each_with_index do |word, i|
-    #     if i.even?
-    #         word = word.upcase!
-    #     else
-    #         word = word.downcase!
-    #     end
-    # end
-    # return words.join(" ")
-    # new_sen.each_with_index.map { |ele, i| (i % 2).zero? ? ele.upcase : ele.downcase }.join(' ')
-    
-    words.each_with_index.map {|ele, i| i.even? ? ele.upcase : ele.downcase}.join(' ')
+def alternating_case (srt)
+    words = srt.split(' ')
+
+    words.each_with_index.map {|word, i| i.even? ? word.upcase : word.downcase}.join(" ")
 end

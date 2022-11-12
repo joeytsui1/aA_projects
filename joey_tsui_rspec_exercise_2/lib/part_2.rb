@@ -1,35 +1,34 @@
-def palindrome?(str)
-    i = 0
-    while i < str.length - 1
-        if str[i] != str[-1 -i]
+def palindrome? (str)
+    str.each_char.with_index do |char, i|
+        if str[i] != str[-1-i]
             return false
         end
-        i += 1
     end
     return true
 end
 
-def substrings(str)
+# def palindrome? (str)
+#     (0...str.length-1).all? {|i| str[i] == str[-1-i]}
+# end
+
+# def palindrome? (str)
+#     (0...str.length-1).none? {|i| str[i] != str[-1-i]}
+# end
+
+def substrings (str)
     arr = []
-    str.each_char.with_index do |char, i|
+
+    str.each_char.with_index do |char, i |
         (i..str.length-1).each do |j|
             arr << str[i..j]
         end
     end
-
-    arr
+    return arr
 end
 
-def palindrome_substrings(str)
-    substrings_arr = substrings(str)
-
-    substrings_arr.select do |substring|
-        if palindrome?(substring) && substring.length > 1
-            substring
-        end
+def palindrome_substrings (str)
+    subs = substrings(str)
+    new_arr = subs.select do |sub|
+        sub if palindrome?(sub) && sub.length > 1
     end
 end
-
-# def palindrome_substrings(str)
-#     substrings(str).select {|substr| palindrome?(substr) && substr.length > 1}
-# end
