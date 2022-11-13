@@ -1,35 +1,40 @@
-def partition (arr, num)
-    part_arr = Array.new(2) {Array.new(0)}
+def partition (arr, n) #MAIN THIS IS TO KNOW HOW TO MAKE ARR WITH ARR AS DEFAULT VALUE
+    new_arr = Array.new(2) {Array.new(0)}
 
     arr.each do |ele|
-        if ele < num
-            part_arr[0] << ele
+        if ele < n
+            new_arr[0] << ele
         else
-            part_arr[1] << ele
+            new_arr[1] << ele
         end
     end
-    return part_arr
+    return new_arr
 end
 
-def merge(hash1, hash2)
-    new_hash = Hash.new(0)
+#WHEN USING THE PARTITION METHOD WHEN THE BLOCK IS TRUE IT WILL GO INTO THE FIRST ARR
+
+#  def partiton (arr, n)
+#     arr.partition {|ele| ele < n}
+#  end
+
+
+def merge (hash1, hash2)
+    new_hash = {}
 
     hash1.each do |k, v|
         new_hash[k] = v
     end
-
-    hash2.each do |k,v|
+     hash2.each do |k, v|
         new_hash[k] = v
     end
-
     return new_hash
 end
 
-def censor (sen, curses)
-    words = sen.split(' ')
+def censor (sen, arr)
+    words = sen.split(" ")
 
     new_sen = words.map do |word|
-        if curses.include?(word.downcase)
+        if arr.include?(word.downcase)
             change_word(word)
         else
             word

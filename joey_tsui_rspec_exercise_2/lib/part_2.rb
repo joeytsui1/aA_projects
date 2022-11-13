@@ -17,8 +17,7 @@ end
 
 def substrings (str)
     arr = []
-
-    str.each_char.with_index do |char, i |
+    (0..str.length-1).each do |i|
         (i..str.length-1).each do |j|
             arr << str[i..j]
         end
@@ -28,7 +27,5 @@ end
 
 def palindrome_substrings (str)
     subs = substrings(str)
-    new_arr = subs.select do |sub|
-        sub if palindrome?(sub) && sub.length > 1
-    end
+    subs.select {|sub| palindrome?(sub) && sub.length > 1}
 end
