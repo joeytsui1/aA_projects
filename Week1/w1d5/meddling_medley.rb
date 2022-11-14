@@ -657,9 +657,11 @@ end
 
 def change_word(word)
     vowels = "aieou"
+    
     return word + word[-1] if vowels.include?(word[-1])
 
     new_word = ""
+
     word.each_char.with_index do |char, i|
         if vowels.include?(char.downcase)
             new_word += char + "b" + char.downcase

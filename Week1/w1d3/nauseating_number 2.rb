@@ -748,3 +748,15 @@ end
 # p tribonacci_number(6)  # 13
 # p tribonacci_number(7)  # 24
 # p tribonacci_number(11) # 274
+
+
+def matrix_addition (m1, m2)
+    new_matrix = Array.new (m1.length) {Array.new()}
+
+    (0..m1.length-1).each do |i|
+        (0..m1[0].length-1).each do |j|
+            new_matrix[i][j] = m1[i][j] + m2[i][j]
+        end
+    end
+    return new_matrix
+end
