@@ -14,7 +14,7 @@ class Startup
     end
 
     def > (startup)
-        self.funding > startup.funding
+        @funding > startup.funding
     end
 
     def hire (name, title )
@@ -31,11 +31,9 @@ class Startup
     end
 
     def pay_employee(employee)
-        amount = self.salaries[employee.title]
-        
-        if amount < @funding
-            @funding -= amount
-            employee.pay(amount)
+        if @salaries[employee.title] < @funding
+            @funding -= @salaries[employee.title]
+            employee.pay(@salaries[employee.title])
         else
             raise
         end
